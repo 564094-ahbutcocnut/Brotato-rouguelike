@@ -5,6 +5,10 @@ public class GunManager : MonoBehaviour
 {
     [SerializeField] GameObject gunPrefab;
 
+    [Header("GunType")]
+    [SerializeField] GameObject BasicGunPrefab;
+    [SerializeField] GameObject RocketLauncherPrefab;
+
     Transform player;
     List<Vector2> gunPositions = new List<Vector2>();
 
@@ -34,13 +38,17 @@ public class GunManager : MonoBehaviour
             AddGun();
     }
 
-    void AddGun()
-    {
-        var pos = gunPositions[spawnedGuns];
+    public void AddGun()
+    { 
+        
+        var roll = Random.Range(0, 100);
+        var WeaponType = roll < 90 ? BasicGunPrefab : RocketLauncherPrefab;      
 
         var newGun = Instantiate(gunPrefab, pos, Quaternion.identity);
 
         newGun.GetComponent<Gun>().SetOffset(pos);
         spawnedGuns++;
+
+
     }
 }

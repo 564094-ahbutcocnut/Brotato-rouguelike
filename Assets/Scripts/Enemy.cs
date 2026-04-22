@@ -13,18 +13,6 @@ public class Enemy : MonoBehaviour
     [SerializeField] float chargeSpeed = 12f;
     [SerializeField] float prepareTime = 2f;
 
-    [Header("GunType")]
-    [SerializeField] GameObject BasicGunPrefab;
-    [SerializeField] GameObject RocketLauncherPrefab;
-
-    private static int DiceRoll(int min, int max)
-    {
-        int result;
-        Random rnd = new Random();
-        result = rnd.Next(min, max);
-        return result;
-    }
-
     bool isCharging = false;
     bool isPreparingCharge = false;
 
@@ -79,12 +67,11 @@ public class Enemy : MonoBehaviour
         if (currentHealth <= 0)
         {
             Destroy(gameObject);
-            int DropWeapon = DiceRoll(1, 10);
+            AddGun();
+            var DropWeapon = Random.Range(0, 10);
             if (DropWeapon <= 1)
             {
-                var roll = Random.Range(0, 100);
-                var WeaponType = roll < 90 ? BasicGunPrefab : RocketLauncherPrefab;
-                var e = Instantiate(WeaponType);
+                AddGun();
             }
 
         }
