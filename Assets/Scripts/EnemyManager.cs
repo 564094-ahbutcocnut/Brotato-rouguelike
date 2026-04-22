@@ -2,8 +2,8 @@ using UnityEngine;
 
 public class EnemyManager : MonoBehaviour
 {
-    [SerializedField] GameObject enemyPrefab;
-    [SerializedField] float timeBewtweenSpawns = 0.5f
+    [SerializeField] GameObject enemyPrefab;
+    [SerializeField] float timeBewtweenSpawns = 0.5f;
     float currentTimeBetweenSpawns;
 
     Transform enemiesParent;
@@ -23,7 +23,9 @@ public class EnemyManager : MonoBehaviour
 
     private void Update()
     {
-        currentTimeBetweenSpawns -= Time.deltatime;
+        if (!WaveManager.Instance.WaveRunning()) return;
+
+        currentTimeBetweenSpawns -= Time.deltaTime;
 
         if( currentTimeBetweenSpawns <= 0 )
         {
@@ -37,9 +39,10 @@ public class EnemyManager : MonoBehaviour
         return new Vector2(Random.Range(-16, 16), Random.Range(-8, 8));
     }
 
+
     void SpawnEnemy()
     {
-        var e = Instantiate(enemyPrefab), RandomPosition(), Quaternion.identity);
+        var e = Instantiate(enemyPrefab, RandomPosition(), Quaternion.identity);
         e.transform.SetParent(enemiesParent);
     }
 
