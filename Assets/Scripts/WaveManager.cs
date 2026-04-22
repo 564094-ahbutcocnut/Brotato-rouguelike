@@ -21,7 +21,15 @@ public class WaveManager : MonoBehaviour
     private void Start()
     {
         StartNewWave();
-        waveText.text = "30";
+        timeText.text = "30";
+        waveText.text = "Wave: 1";
+    }
+
+    private void Update()
+    {
+        //For testing
+        if (Input.GetKeyDown(KeyCode.P))
+            StartNewWave();
     }
 
     public bool WaveRunning() => waveRunning;
