@@ -10,6 +10,7 @@ public class WaveManager : MonoBehaviour
     public static WaveManager Instance;
 
     bool waveRunning = true;
+    bool waveNotRunning = false;
     int currentWave = 0;
     int currentWaveTime;
 
@@ -58,7 +59,20 @@ public class WaveManager : MonoBehaviour
                 WaveComplete();
         }
 
-        yield return null; 
+        yield return null;
+
+        while (waveNotRunning == true)
+        {
+            yield return new WaitForSeconds(1f);
+            currentWaveTime--;
+
+            timeText.text = currentWaveTime.ToString();
+
+            if (currentWaveTime <= 0)
+                StartNewWave();
+        }
+
+        yield return null;
     }
 
     private void WaveComplete()
@@ -66,6 +80,7 @@ public class WaveManager : MonoBehaviour
         StopAllCoroutines();
         EnemyManager.Instance.DestroyAllEnemies();
         waveRunning = false;
+        waveNotRunning = true;
         currentWaveTime = 30;
         timeText.text = currentWaveTime.ToString();
         timeText.color = Color.red;
