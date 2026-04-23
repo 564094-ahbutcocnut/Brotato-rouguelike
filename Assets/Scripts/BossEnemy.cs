@@ -1,9 +1,9 @@
 using UnityEngine;
 
-public class Enemy : MonoBehaviour
+public class BossEnemy : MonoBehaviour
 {
 
-    [Header("Stats")] 
+    [Header("Stats")]
     [SerializeField] int maxHealth = 100;
     [SerializeField] float speed = 2f;
 
@@ -15,8 +15,9 @@ public class Enemy : MonoBehaviour
 
     bool isCharging = false;
     bool isPreparingCharge = false;
+    public bool BossDefeated = false;
 
-    [SerializeField]  GunManager gunManager;
+    [SerializeField] GunManager gunManager;
 
     private int currentHealth;
 
@@ -49,10 +50,10 @@ public class Enemy : MonoBehaviour
 
             transform.position += direction * speed * Time.deltaTime;
 
-            var playerToTheRight = target.position.x > transform.position.x; 
+            var playerToTheRight = target.position.x > transform.position.x;
             transform.localScale = new Vector2(playerToTheRight ? -1 : 1, 1);
 
-            if(isCharger && !isCharging && Vector2.Distance(transform.position, target.position) < distanceToCharge)
+            if (isCharger && !isCharging && Vector2.Distance(transform.position, target.position) < distanceToCharge)
             {
                 isPreparingCharge = true;
                 Invoke("StartCharging", prepareTime);
@@ -66,7 +67,7 @@ public class Enemy : MonoBehaviour
         isCharging = true;
         speed = chargeSpeed;
     }
-        
+
 
 
     public void Hit(int damage)
@@ -76,11 +77,12 @@ public class Enemy : MonoBehaviour
 
         if (currentHealth <= 0)
         {
-            Destroy(gameObject);        
+            Destroy(gameObject);
+            BossDefeated = true;
 
 
         }
-            
+
     }
 
 

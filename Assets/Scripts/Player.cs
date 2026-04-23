@@ -53,7 +53,10 @@ public class Player : MonoBehaviour
         anim.SetFloat("velocity", movement.magnitude);
 
         if (movement.x != 0)
+        {
             facingDirection = movement.x > 0 ? 1 : -1;
+        }
+            
 
         transform.localScale = new Vector2(facingDirection, 1);
     }

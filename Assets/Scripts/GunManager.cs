@@ -3,7 +3,6 @@ using UnityEngine;
 
 public class GunManager : MonoBehaviour
 {
-    [SerializeField] GameObject gunPrefab;
 
     [Header("GunType")]
     [SerializeField] GameObject BasicGunPrefab;
@@ -18,14 +17,17 @@ public class GunManager : MonoBehaviour
     {
         player = GameObject.Find("Player").transform;
 
-        gunPositions.Add(new Vector2(1.4f, 0.2f));
-        gunPositions.Add(new Vector2(-1.4f, 0.2f));        
+        gunPositions.Add(new Vector2(-1.5f, 0f));
+        gunPositions.Add(new Vector2(1.5f, 0f));        
 
-        gunPositions.Add(new Vector2(-1.2f, 1f));
-        gunPositions.Add(new Vector2(1.2f, 1f));
+        gunPositions.Add(new Vector2(0f, 1.5f));
+        gunPositions.Add(new Vector2(0f, -1.5f));
 
-        gunPositions.Add(new Vector2(-1f, -0.5f));
-        gunPositions.Add(new Vector2(1f, -0.5f));
+        gunPositions.Add(new Vector2(-1.1f, 1.1f));
+        gunPositions.Add(new Vector2(1.1f, 1.1f));
+
+        gunPositions.Add(new Vector2(-1.1f, -1.1f));
+        gunPositions.Add(new Vector2(1.1f, -1.1f));
 
         AddGun();
         AddGun();
@@ -39,12 +41,16 @@ public class GunManager : MonoBehaviour
     }
 
     public void AddGun()
-    { 
+    {
+        var pos = gunPositions[spawnedGuns];
         
         var roll = Random.Range(0, 100);
-        var WeaponType = roll < 90 ? BasicGunPrefab : RocketLauncherPrefab;      
+        var WeaponType = roll < 1 ? BasicGunPrefab : RocketLauncherPrefab;      
+        // 1 = 99% for second item to appear
 
-        var newGun = Instantiate(gunPrefab, pos, Quaternion.identity);
+
+
+        var newGun = Instantiate(WeaponType, pos, Quaternion.identity);
 
         newGun.GetComponent<Gun>().SetOffset(pos);
         spawnedGuns++;
