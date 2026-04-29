@@ -16,6 +16,7 @@ public class WaveManager : MonoBehaviour
     bool bossFight = false;
     public int currentWave = 0;
     int currentWaveTime;
+    int numberofguns = 0;
 
 
     private void Awake()
@@ -131,14 +132,15 @@ public class WaveManager : MonoBehaviour
         timeText.color = Color.green;
         StartCoroutine(TimeTillNextWave());
 
-
-
-        var DropWeapon = Random.Range(0, 10);
-        if (DropWeapon <= 5)
+        if(numberofguns <= 7)
         {
-            gunManager.AddGun();
+            var DropWeapon = Random.Range(0, 10);
+            if (DropWeapon <= 5)
+            {
+                gunManager.AddGun();
+                 
+            }
         }
-
 
     }
 

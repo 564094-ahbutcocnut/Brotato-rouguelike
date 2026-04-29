@@ -751,8 +751,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f7d55ab6f31193a45a96f188178de69d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BasicGunPrefab: {fileID: 2807200907114533237, guid: e2e79b69fbde5b34c846ac366150fec0, type: 3}
-  RocketLauncherPrefab: {fileID: 1618588435885867961, guid: aac272958a4b550408f619f8cfdc899a, type: 3}
+  BasicGunPrefab: {fileID: 1618588435885867961, guid: aac272958a4b550408f619f8cfdc899a, type: 3}
+  RocketLauncherPrefab: {fileID: 2807200907114533237, guid: e2e79b69fbde5b34c846ac366150fec0, type: 3}
+  SpamtonPrefab: {fileID: 7053649914082790264, guid: 3a1ab2095ac89ab4e911dd859cbeda24, type: 3}
+  ShotgunPrefab: {fileID: 3516597602498438210, guid: 1a4b101875189674d95f8ada042476bf, type: 3}
 --- !u!1 &266274063
 GameObject:
   m_ObjectHideFlags: 0
@@ -1699,7 +1701,7 @@ MonoBehaviour:
   chargerPrefab: {fileID: 1657016653207952758, guid: 7cdaf08841c83b2478d5b857c21769d2, type: 3}
   BossPrefab: {fileID: 0}
   StartingTimeBewtweenSpawns: 0.75
-  MinDistanceFromPlayer: 2.25
+  MinDistanceFromPlayer: 4
 --- !u!1 &1832237293
 GameObject:
   m_ObjectHideFlags: 0

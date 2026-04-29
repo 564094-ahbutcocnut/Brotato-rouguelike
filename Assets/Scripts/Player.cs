@@ -71,7 +71,7 @@ public class Player : MonoBehaviour
         Enemy enemy = collision.gameObject.GetComponent<Enemy>();
 
         if (enemy != null)
-            Hit(20);
+            Hit(5);
     }
 
     void Hit(int damage)

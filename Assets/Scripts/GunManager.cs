@@ -7,6 +7,10 @@ public class GunManager : MonoBehaviour
     [Header("GunType")]
     [SerializeField] GameObject BasicGunPrefab;
     [SerializeField] GameObject RocketLauncherPrefab;
+    [SerializeField] GameObject SpamtonPrefab;
+    [SerializeField] GameObject ShotgunPrefab;
+
+    int numberofguns = 0;
 
     Transform player;
     List<Vector2> gunPositions = new List<Vector2>();
@@ -45,8 +49,28 @@ public class GunManager : MonoBehaviour
         var pos = gunPositions[spawnedGuns];
         
         var roll = Random.Range(0, 100);
-        var WeaponType = roll < 1 ? BasicGunPrefab : RocketLauncherPrefab;      
+        var WeaponType = roll < 50 ? BasicGunPrefab : RocketLauncherPrefab;
+        numberofguns++;
+
         // 1 = 99% for second item to appear
+
+        if (roll <= 1)
+        {
+            WeaponType = SpamtonPrefab;
+        }
+        if (roll == 2 || roll == 3 || roll == 4 || roll == 5)
+        {
+            WeaponType = BasicGunPrefab;
+        }
+        if (roll == 6 || roll == 7)
+        {
+            WeaponType = RocketLauncherPrefab;
+        }
+        if (roll == 8 || roll == 9 || roll == 10)
+        {
+            WeaponType = ShotgunPrefab;
+        }
+
 
 
 

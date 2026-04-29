@@ -47,3 +47,6 @@ TagManager:
   - name: Poland
     uniqueID: 1539444269
     locked: 0
+  - name: Spamton
+    uniqueID: 2536906203
+    locked: 0
