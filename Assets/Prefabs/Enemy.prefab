@@ -116,8 +116,8 @@ MonoBehaviour:
   distanceToCharge: 5
   chargeSpeed: 12
   prepareTime: 2
-  BasicGunPrefab: {fileID: 2807200907114533237, guid: e2e79b69fbde5b34c846ac366150fec0, type: 3}
-  RocketLauncherPrefab: {fileID: 2807200907114533237, guid: e2e79b69fbde5b34c846ac366150fec0, type: 3}
+  exp: 4
+  gunManager: {fileID: 0}
 --- !u!95 &2106257815151716510
 Animator:
   serializedVersion: 5

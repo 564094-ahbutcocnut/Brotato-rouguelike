@@ -1,5 +1,6 @@
 using TMPro;
 using UnityEngine;
+using UnityEngine.Experimental.Rendering;
 
 public class Player : MonoBehaviour
 {
@@ -12,6 +13,13 @@ public class Player : MonoBehaviour
     int maxHealth = 100;
     int currentHealth;
 
+
+
+
+
+    [SerializeField] Enemy enemy;
+
+
     bool dead = false;
 
     float moveHorizontal, moveVertical;
@@ -21,6 +29,10 @@ public class Player : MonoBehaviour
 
     private void Start()
     {
+        
+        
+
+
         anim = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
 
@@ -31,8 +43,12 @@ public class Player : MonoBehaviour
     private void Update()
     {
 
+
+        
+
+
         //Only for testing
-        if(Input.GetKeyDown(KeyCode.J))
+        if (Input.GetKeyDown(KeyCode.J))
             Hit(10);
 
 
@@ -59,6 +75,8 @@ public class Player : MonoBehaviour
             
 
         transform.localScale = new Vector2(facingDirection, 1);
+
+
     }
 
     private void FixedUpdate()
@@ -71,7 +89,7 @@ public class Player : MonoBehaviour
         Enemy enemy = collision.gameObject.GetComponent<Enemy>();
 
         if (enemy != null)
-            Hit(5);
+            Hit(10);
     }
 
     void Hit(int damage)

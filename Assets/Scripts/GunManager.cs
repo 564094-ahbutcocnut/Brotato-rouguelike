@@ -58,15 +58,15 @@ public class GunManager : MonoBehaviour
         {
             WeaponType = SpamtonPrefab;
         }
-        if (roll == 2 || roll == 3 || roll == 4 || roll == 5)
+        if (roll >= 2 && roll <= 5)
         {
             WeaponType = BasicGunPrefab;
         }
-        if (roll == 6 || roll == 7)
+        if (roll >= 6 && roll <= 7)
         {
             WeaponType = RocketLauncherPrefab;
         }
-        if (roll == 8 || roll == 9 || roll == 10)
+        if (roll >= 8 && roll <= 10)
         {
             WeaponType = ShotgunPrefab;
         }

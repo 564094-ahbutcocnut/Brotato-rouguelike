@@ -752,7 +752,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   BasicGunPrefab: {fileID: 1618588435885867961, guid: aac272958a4b550408f619f8cfdc899a, type: 3}
-  RocketLauncherPrefab: {fileID: 2807200907114533237, guid: e2e79b69fbde5b34c846ac366150fec0, type: 3}
+  RocketLauncherPrefab: {fileID: 2280320923347732588, guid: ec47e51bda9d8b648adf0f1cff754766, type: 3}
   SpamtonPrefab: {fileID: 7053649914082790264, guid: 3a1ab2095ac89ab4e911dd859cbeda24, type: 3}
   ShotgunPrefab: {fileID: 3516597602498438210, guid: 1a4b101875189674d95f8ada042476bf, type: 3}
 --- !u!1 &266274063
@@ -1250,7 +1250,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2106866716496931118, guid: fdb2764315a83ed44987084db5970631, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2025607645}
   m_SourcePrefab: {fileID: 100100000, guid: fdb2764315a83ed44987084db5970631, type: 3}
 --- !u!1 &568974856
 GameObject:
@@ -1733,6 +1736,23 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2025607640 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2106866716496931118, guid: fdb2764315a83ed44987084db5970631, type: 3}
+  m_PrefabInstance: {fileID: 531570362}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2025607645
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2025607640}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 187ba468edd8fcc46811bbefe3dc2b65, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

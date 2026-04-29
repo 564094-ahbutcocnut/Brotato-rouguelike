@@ -1,3 +1,5 @@
+using System;
+using TMPro;
 using UnityEngine;
 
 public class Enemy : MonoBehaviour
@@ -13,8 +15,13 @@ public class Enemy : MonoBehaviour
     [SerializeField] float chargeSpeed = 12f;
     [SerializeField] float prepareTime = 2f;
 
+
+
+   
+
     bool isCharging = false;
     bool isPreparingCharge = false;
+
 
     [SerializeField]  GunManager gunManager;
 
@@ -76,7 +83,7 @@ public class Enemy : MonoBehaviour
 
         if (currentHealth <= 0)
         {
-            Destroy(gameObject);        
+            Destroy(gameObject);
 
 
         }
