@@ -17,7 +17,7 @@ public class SmgBullets : MonoBehaviour
         if (enemy != null)
         {
             Destroy(gameObject);
-            enemy.Hit(20);
+            enemy.Hit(10);
         }
     }
 }

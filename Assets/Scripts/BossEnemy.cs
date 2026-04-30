@@ -4,7 +4,7 @@ public class BossEnemy : MonoBehaviour
 {
 
     [Header("Stats")]
-    [SerializeField] int maxHealth = 100;
+    [SerializeField] int maxBossHealth = 100;
     [SerializeField] float speed = 2f;
 
     [Header("Charger")]
@@ -19,7 +19,7 @@ public class BossEnemy : MonoBehaviour
 
     [SerializeField] GunManager gunManager;
 
-    private int currentHealth;
+    private int currentBossHealth;
 
     Animator anim;
     Transform target; // Follow target
@@ -34,7 +34,7 @@ public class BossEnemy : MonoBehaviour
 
     private void Start()
     {
-        currentHealth = maxHealth;
+        currentBossHealth = maxBossHealth;
         target = GameObject.Find("Player").transform;
         anim = GetComponent<Animator>();
     }
@@ -72,10 +72,10 @@ public class BossEnemy : MonoBehaviour
 
     public void Hit(int damage)
     {
-        currentHealth -= damage;
+        currentBossHealth -= damage;
         anim.SetTrigger("Hit");
 
-        if (currentHealth <= 0)
+        if (currentBossHealth <= 0)
         {
             Destroy(gameObject);
             BossDefeated = true;
