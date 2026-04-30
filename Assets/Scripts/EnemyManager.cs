@@ -70,7 +70,7 @@ public class EnemyManager : MonoBehaviour
             if (currentTimeBetweenSpawns <= 0)
             {
                 SpawnEnemy();
-                currentTimeBetweenSpawns = 1000;
+                currentTimeBetweenSpawns = StartingTimeBewtweenSpawns + 100;
             }
         }
 
@@ -114,7 +114,9 @@ public class EnemyManager : MonoBehaviour
         }
         if (WaveManager.Instance.currentWave == 10)
         {
-            var bossObj = Instantiate(BossPrefab, RandomPosition(), Quaternion.identity);
+            var roll = Random.Range(0, 100);
+            var enemyType = roll < 90 ? BossPrefab : BossPrefab;
+            var bossObj = Instantiate(enemyType, RandomPosition(), Quaternion.identity);
             bossObj.transform.SetParent(enemiesParent);
             WaveManager.Instance.SetBossEnemy(bossObj.GetComponent<BossEnemy>());
         }

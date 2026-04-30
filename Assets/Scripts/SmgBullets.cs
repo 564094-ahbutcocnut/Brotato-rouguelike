@@ -19,5 +19,11 @@ public class SmgBullets : MonoBehaviour
             Destroy(gameObject);
             enemy.Hit(10);
         }
+        var Bossenemy = collision.gameObject.GetComponent<BossEnemy>();
+        if (Bossenemy != null)
+        {
+            Destroy(gameObject);
+            Bossenemy.Hit(10);
+        }
     }
 }

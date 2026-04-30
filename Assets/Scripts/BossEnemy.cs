@@ -77,8 +77,9 @@ public class BossEnemy : MonoBehaviour
 
         if (currentBossHealth <= 0)
         {
-            Destroy(gameObject);
             BossDefeated = true;
+            Destroy(gameObject);
+            
 
 
         }

@@ -18,6 +18,7 @@ public class Player : MonoBehaviour
 
 
     [SerializeField] Enemy enemy;
+    [SerializeField] BossEnemy bossenemy;
 
 
     bool dead = false;
@@ -90,6 +91,11 @@ public class Player : MonoBehaviour
 
         if (enemy != null)
             Hit(10);
+        BossEnemy bossenemy = collision.gameObject.GetComponent<BossEnemy>();
+
+        if (bossenemy != null)
+            Hit(1);
+
     }
 
     void Hit(int damage)

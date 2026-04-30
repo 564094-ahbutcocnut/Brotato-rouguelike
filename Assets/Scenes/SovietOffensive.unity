@@ -303,8 +303,10 @@ MonoBehaviour:
   timeText: {fileID: 163418252}
   waveText: {fileID: 43216659}
   gunManager: {fileID: 263414356}
-  bossEnemy: {fileID: 5614146367740044096, guid: 2541bb28582fc0242b8e217e6cd54714, type: 3}
-  currentWave: 0
+  enemyManager: {fileID: 1716275114}
+  bossEnemy: {fileID: 4049000217585956862, guid: 2541bb28582fc0242b8e217e6cd54714, type: 3}
+  winningSquare: {fileID: 8335525435326841297, guid: aff6862332100ff4483eda93cc57bc7d, type: 3}
+  currentWave: 9
 --- !u!1 &144841305
 GameObject:
   m_ObjectHideFlags: 0
@@ -1203,6 +1205,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 2106866716496931118, guid: fdb2764315a83ed44987084db5970631, type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
     - target: {fileID: 4585888229312776760, guid: fdb2764315a83ed44987084db5970631, type: 3}
       propertyPath: healthtext
       value: 
@@ -1702,7 +1708,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyPrefab: {fileID: 439345257282686269, guid: 152fa009ff3d7794fab247861b57f1f2, type: 3}
   chargerPrefab: {fileID: 1657016653207952758, guid: 7cdaf08841c83b2478d5b857c21769d2, type: 3}
-  BossPrefab: {fileID: 5689257688207231061, guid: 2541bb28582fc0242b8e217e6cd54714, type: 3}
+  BossPrefab: {fileID: 3046897704053234848, guid: 2541bb28582fc0242b8e217e6cd54714, type: 3}
   StartingTimeBewtweenSpawns: 0.75
   MinDistanceFromPlayer: 4
 --- !u!1 &1832237293

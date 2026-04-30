@@ -7,7 +7,9 @@ public class WaveManager : MonoBehaviour
     [SerializeField] TextMeshProUGUI timeText;
     [SerializeField] TextMeshProUGUI waveText;
     [SerializeField] GunManager gunManager;
+    [SerializeField] EnemyManager enemyManager;
     [SerializeField] BossEnemy bossEnemy;
+    [SerializeField] GameObject winningSquare;
 
     public static WaveManager Instance;
 
@@ -62,8 +64,17 @@ public class WaveManager : MonoBehaviour
             StartCoroutine(BossTimer());
 
         }
+        if (currentWave >10 && currentWave <= 100)
+        {
+            StopAllCoroutines();
+            timeText.color = Color.white;
+            waveRunning = true;
+            currentWaveTime = 30;
+            waveText.text = "Wave: " + currentWave;
+            StartCoroutine(WaveTimer());
+        }
 
-        
+
     }
 
     IEnumerator WaveTimer()
@@ -87,7 +98,7 @@ public class WaveManager : MonoBehaviour
         while (bossFight)
         {        
             timeText.text = ("Boss Fight");
-            if (bossEnemy != null && bossEnemy.BossDefeated == true)
+            if (bossEnemy.BossDefeated == true)
             {
                 BossWaveComplete();
             }
@@ -113,10 +124,8 @@ public class WaveManager : MonoBehaviour
         EnemyManager.Instance.DestroyAllEnemies();
         waveRunning = false;
         waveNotRunning = true;
-        currentWaveTime = 5;
-        timeText.text = currentWaveTime.ToString();
-        timeText.color = Color.green;
-        StartCoroutine(TimeTillNextWave());
+        var win = winningSquare;
+        Instantiate(win, RandomWinPosition(), Quaternion.identity);
 
 
     }
@@ -141,5 +150,12 @@ public class WaveManager : MonoBehaviour
     public void SetBossEnemy(BossEnemy boss)
     {
         this.bossEnemy = boss;
+    }
+
+
+    Vector2 RandomWinPosition()
+    {
+        Vector2 randomposition = new Vector2(Random.Range(-1, 1), Random.Range(-1, 1));
+        return randomposition;
     }
 }

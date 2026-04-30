@@ -17,5 +17,11 @@ public class BigShot : MonoBehaviour
             Destroy(gameObject);
             enemy.Hit(100);
         }
+        var Bossenemy = collision.gameObject.GetComponent<BossEnemy>();
+        if (Bossenemy != null)
+        {
+            Destroy(gameObject);
+            Bossenemy.Hit(100);
+        }
     }
 }

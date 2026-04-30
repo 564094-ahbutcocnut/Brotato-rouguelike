@@ -17,5 +17,11 @@ public class Projectile : MonoBehaviour
             Destroy(gameObject);
             enemy.Hit(25);
         }
+        var bossenemy = collision.gameObject.GetComponent<BossEnemy>();
+        if (bossenemy != null)
+        {
+            Destroy(gameObject);
+            bossenemy.Hit(25);
+        }
     }
 }

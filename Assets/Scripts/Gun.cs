@@ -16,6 +16,7 @@ public class Gun : MonoBehaviour
 
     private float timeSinceLastShot = 0f;
     Transform closestEnemy;
+    Transform closestBossEnemy;
     Animator anim;
 
     private void Start()
@@ -33,6 +34,10 @@ public class Gun : MonoBehaviour
         FindClosestEnemy();
         AimAtEnemy();
         Shooting();
+        FindBossClosestEnemy();
+        AimAtBossEnemy();
+        BossShooting();
+
     }
 
     void FindClosestEnemy()
@@ -53,6 +58,24 @@ public class Gun : MonoBehaviour
             }
         }
     }
+    void FindBossClosestEnemy()
+    {
+        closestBossEnemy = null;
+        float closestDistance = Mathf.Infinity;
+
+        BossEnemy[] Bossenemies = FindObjectsOfType<BossEnemy>();
+
+        foreach (BossEnemy Bossenemy in Bossenemies)
+        {
+            float distance = Vector2.Distance(transform.position, Bossenemy.transform.position);
+            if (distance < closestDistance && distance <= fireDistance)
+            {
+                closestDistance = distance;
+                closestBossEnemy = Bossenemy.transform;
+
+            }
+        }
+    }
 
     void AimAtEnemy()
     {
@@ -68,10 +91,35 @@ public class Gun : MonoBehaviour
             transform.position = (Vector2)player.position + offset;
         }
     }
+    void AimAtBossEnemy()
+    {
+        if (closestBossEnemy != null)
+        {
+            Vector3 direction = closestBossEnemy.position - transform.position;
+            direction.Normalize();
+
+            float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+
+            transform.rotation = Quaternion.Euler(0, 0, angle);
+
+            transform.position = (Vector2)player.position + offset;
+        }
+    }
 
     void Shooting()
     {
-        if (closestEnemy == null) return;
+        if (closestEnemy == null) return;        
+
+        timeSinceLastShot += Time.deltaTime;
+        if (timeSinceLastShot >= fireRate)
+        {
+            Shoot();
+            timeSinceLastShot = 0;
+        }
+    }
+    void BossShooting()
+    {
+        if (closestBossEnemy == null) return;
 
         timeSinceLastShot += Time.deltaTime;
         if (timeSinceLastShot >= fireRate)
