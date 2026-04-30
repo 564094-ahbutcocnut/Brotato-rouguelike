@@ -114,7 +114,9 @@ public class EnemyManager : MonoBehaviour
         }
         if (WaveManager.Instance.currentWave == 10)
         {
-            Instantiate(BossPrefab, RandomPosition(), Quaternion.identity).transform.SetParent(enemiesParent);
+            var bossObj = Instantiate(BossPrefab, RandomPosition(), Quaternion.identity);
+            bossObj.transform.SetParent(enemiesParent);
+            WaveManager.Instance.SetBossEnemy(bossObj.GetComponent<BossEnemy>());
         }
 
 

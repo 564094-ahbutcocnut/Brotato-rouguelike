@@ -304,7 +304,7 @@ MonoBehaviour:
   waveText: {fileID: 43216659}
   gunManager: {fileID: 263414356}
   bossEnemy: {fileID: 5614146367740044096, guid: 2541bb28582fc0242b8e217e6cd54714, type: 3}
-  currentWave: 0
+  currentWave: 8
 --- !u!1 &144841305
 GameObject:
   m_ObjectHideFlags: 0

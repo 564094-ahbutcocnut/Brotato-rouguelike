@@ -46,6 +46,12 @@ public class GunManager : MonoBehaviour
 
     public void AddGun()
     {
+        if (spawnedGuns >= gunPositions.Count)
+        {
+            // Max guns reached, cannot add more
+            return;
+        }
+
         var pos = gunPositions[spawnedGuns];
         
         var roll = Random.Range(0, 100);

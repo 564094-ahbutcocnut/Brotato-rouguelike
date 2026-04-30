@@ -86,17 +86,13 @@ public class WaveManager : MonoBehaviour
     {
         while (bossFight)
         {        
-
             timeText.text = ("Boss Fight");
-
-            if (bossEnemy.BossDefeated == true)
+            if (bossEnemy != null && bossEnemy.BossDefeated == true)
             {
                 BossWaveComplete();
             }
-               
+            yield return null;
         }
-
-        yield return null;
     }
 
     private void WaveComplete()
@@ -131,7 +127,7 @@ public class WaveManager : MonoBehaviour
         {
             yield return new WaitForSeconds(1f);
             currentWaveTime--;
-            
+
 
             timeText.text = currentWaveTime.ToString();
 
@@ -142,5 +138,8 @@ public class WaveManager : MonoBehaviour
         yield return null;
     }
 
-
+    public void SetBossEnemy(BossEnemy boss)
+    {
+        this.bossEnemy = boss;
+    }
 }
