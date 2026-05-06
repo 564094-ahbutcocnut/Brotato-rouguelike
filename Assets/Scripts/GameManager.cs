@@ -13,6 +13,7 @@ public class GameManager : MonoBehaviour
     private bool gameRunning;
 
     public static GameManager instance;
+    public string nextSceneName;
 
     private void Awake()
     {
@@ -29,7 +30,7 @@ public class GameManager : MonoBehaviour
 
     void RestartGame()
     {
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene(nextSceneName);
     }
 
     public bool IsGameRunning()

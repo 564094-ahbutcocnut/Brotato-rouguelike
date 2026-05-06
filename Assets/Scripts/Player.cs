@@ -98,7 +98,7 @@ public class Player : MonoBehaviour
 
     }
 
-    void Hit(int damage)
+    public void Hit(int damage)
     {
         anim.SetTrigger("hit");
         currentHealth -= damage;

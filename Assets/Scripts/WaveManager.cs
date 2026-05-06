@@ -18,7 +18,13 @@ public class WaveManager : MonoBehaviour
     bool bossFight = false;
     public int currentWave = 0;
     int currentWaveTime;
-    
+
+    public void SetBossEnemy(BossEnemy boss)
+    {
+        this.bossEnemy = boss;
+        
+    }
+
 
 
     private void Awake()
@@ -37,7 +43,7 @@ public class WaveManager : MonoBehaviour
     {
         //For testing
         if (Input.GetKeyDown(KeyCode.P))
-            StartNewWave();
+            StartNewWave();        
     }
 
     public bool WaveRunning() => waveRunning;
@@ -62,6 +68,10 @@ public class WaveManager : MonoBehaviour
             bossFight = true;            
             waveText.text = "Wave: Boss" ;
             StartCoroutine(BossTimer());
+            var roll = Random.Range(0, 100);
+            var enemyType = roll < 90 ? bossEnemy : bossEnemy;
+            var bossObj = Instantiate(enemyType, RandomPosition(), Quaternion.identity);            
+            Instance.SetBossEnemy(bossObj.GetComponent<BossEnemy>());
 
         }
         if (currentWave >10 && currentWave <= 100)
@@ -96,10 +106,12 @@ public class WaveManager : MonoBehaviour
     IEnumerator BossTimer()
     {
         while (bossFight)
-        {        
-            timeText.text = ("Boss Fight");
+        {
+
+            timeText.text = ("Boss Fight");            
             if (bossEnemy.BossDefeated == true)
             {
+                
                 BossWaveComplete();
             }
             yield return null;
@@ -147,9 +159,11 @@ public class WaveManager : MonoBehaviour
         yield return null;
     }
 
-    public void SetBossEnemy(BossEnemy boss)
+
+    Vector2 RandomPosition()
     {
-        this.bossEnemy = boss;
+        Vector2 randomposition = new Vector2(Random.Range(-2, 2), Random.Range(-2, 2));
+        return randomposition;
     }
 
 
@@ -158,4 +172,5 @@ public class WaveManager : MonoBehaviour
         Vector2 randomposition = new Vector2(Random.Range(-1, 1), Random.Range(-1, 1));
         return randomposition;
     }
+
 }
