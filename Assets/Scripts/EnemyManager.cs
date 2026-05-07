@@ -92,6 +92,7 @@ public class EnemyManager : MonoBehaviour
 
     void SpawnEnemy()
     {
+        
         if (WaveManager.Instance.currentWave <= 3)
         {
             Instantiate(enemyPrefab, RandomPosition(), Quaternion.identity).transform.SetParent(enemiesParent);            
@@ -114,6 +115,7 @@ public class EnemyManager : MonoBehaviour
         }
         if (WaveManager.Instance.currentWave == 10)
         {
+
             var roll = Random.Range(0, 100);
             var enemyType = roll < 90 ? enemyPrefab : chargerPrefab;
             var enemyObj = Instantiate(enemyType, RandomPosition(), Quaternion.identity);

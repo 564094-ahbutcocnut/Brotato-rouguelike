@@ -41,7 +41,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1126039937431144978}
   - component: {fileID: 9121603620116531238}
-  - component: {fileID: 765740598958309976}
+  - component: {fileID: 5728260347722506114}
   m_Layer: 0
   m_Name: Throwing hammer
   m_TagString: Untagged
@@ -58,8 +58,8 @@ Transform:
   m_GameObject: {fileID: 8682359676663330099}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -10.990705, y: 1.6018168, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -12.977727, y: 2.3019004, z: 0}
+  m_LocalScale: {x: 0.3, y: 0.3, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8200829794226650332}
@@ -105,8 +105,8 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 75f5f34dc1b5347e0b8351032682f224, type: 3}
+  m_SortingOrder: 33
+  m_Sprite: {fileID: 21300000, guid: 91ec35ab8cfcd564c9f5455897a4ccb1, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -117,7 +117,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &765740598958309976
+--- !u!114 &5728260347722506114
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -126,11 +126,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 8682359676663330099}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e07f3d2f7aac2f247a459761d2feb35e, type: 3}
+  m_Script: {fileID: 11500000, guid: 6d5f7f3b69576c249b1aaca6f81f3099, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   muzzle: {fileID: 816730939811759800, guid: 9dfa8568b01504e479870dd657873af4, type: 3}
   muzzlePosition: {fileID: 8200829794226650332}
   projectile: {fileID: 1804985719096622979, guid: d6de331aa8f38db409561a8f03ec6e41, type: 3}
-  fireDistance: 50
-  fireRate: 0.5
+  fireDistance: 20
+  fireRate: 1

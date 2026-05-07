@@ -1,8 +1,7 @@
 using UnityEngine;
 
-public class HammerThrow : MonoBehaviour
+public class HammerThrower : MonoBehaviour
 {
-
     [Header("Prefabs")]
     [SerializeField] GameObject muzzle;
     [SerializeField] Transform muzzlePosition;
@@ -17,13 +16,13 @@ public class HammerThrow : MonoBehaviour
 
     private float timeSinceLastShot = 0f;
     Transform closestPlayer;
-    Animator anim;
+
 
     private void Start()
     {
-        anim = GetComponent<Animator>();
+        
         timeSinceLastShot = fireRate;
-        boss = GameObject.Find("BossEnemy").transform;
+        boss = GameObject.Find("StalinBoss(Clone)").transform;
     }
 
 
@@ -31,22 +30,21 @@ public class HammerThrow : MonoBehaviour
     {
         transform.position = (Vector2)boss.position + offset;
 
+        FindClosestEnemy();
+        AimAtEnemy();
+        Shooting();
 
-        FindClosestPlayer();
-        AimAtPlayer();
-        PlayerShooting();
 
     }
 
-
-    void FindClosestPlayer()
+    void FindClosestEnemy()
     {
         closestPlayer = null;
         float closestDistance = Mathf.Infinity;
 
-        Player[] Players = FindObjectsOfType<Player>();
+        Player[] players = FindObjectsOfType<Player>();
 
-        foreach (Player player in Players)
+        foreach (Player player in players)
         {
             float distance = Vector2.Distance(transform.position, player.transform.position);
             if (distance < closestDistance && distance <= fireDistance)
@@ -59,7 +57,7 @@ public class HammerThrow : MonoBehaviour
     }
 
 
-    void AimAtPlayer()
+    void AimAtEnemy()
     {
         if (closestPlayer != null)
         {
@@ -74,8 +72,7 @@ public class HammerThrow : MonoBehaviour
         }
     }
 
-
-    void PlayerShooting()
+    void Shooting()
     {
         if (closestPlayer == null) return;
 
@@ -86,6 +83,7 @@ public class HammerThrow : MonoBehaviour
             timeSinceLastShot = 0;
         }
     }
+
 
     void Shoot()
     {
@@ -104,3 +102,4 @@ public class HammerThrow : MonoBehaviour
         offset = o;
     }
 }
+

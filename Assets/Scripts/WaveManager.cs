@@ -8,16 +8,26 @@ public class WaveManager : MonoBehaviour
     [SerializeField] TextMeshProUGUI waveText;
     [SerializeField] GunManager gunManager;
     [SerializeField] EnemyManager enemyManager;
+    [SerializeField] HammerManager hammerManager;
     [SerializeField] BossEnemy bossEnemy;
     [SerializeField] GameObject winningSquare;
+  
+
 
     public static WaveManager Instance;
+    Transform managerparent;
+
+
+
+   
 
     bool waveRunning = true;
     bool waveNotRunning = false;
     bool bossFight = false;
     public int currentWave = 0;
-    int currentWaveTime;
+    public int currentWaveTime;
+
+    int showhealth;
 
     public void SetBossEnemy(BossEnemy boss)
     {
@@ -34,6 +44,7 @@ public class WaveManager : MonoBehaviour
 
     private void Start()
     {
+        managerparent = GameObject.Find("Managers").transform;
         StartNewWave();
         timeText.text = "30";
         waveText.text = "Wave: 1";
@@ -65,24 +76,24 @@ public class WaveManager : MonoBehaviour
         {
             StopAllCoroutines();
             timeText.color = Color.red;         
-            bossFight = true;            
+            bossFight = true;
+            waveRunning = true;
             waveText.text = "Wave: Boss" ;
-            StartCoroutine(BossTimer());
             var roll = Random.Range(0, 100);
             var enemyType = roll < 90 ? bossEnemy : bossEnemy;
-            var bossObj = Instantiate(enemyType, RandomPosition(), Quaternion.identity);            
+            var bossObj = Instantiate(enemyType, RandomPosition(), Quaternion.identity);
             Instance.SetBossEnemy(bossObj.GetComponent<BossEnemy>());
+            var needHammerManager = Random.Range(0, 100);
+            var managerType = needHammerManager < 90 ? hammerManager : hammerManager;
+            var managerObj = Instantiate(managerType, RandomPosition(), Quaternion.identity);
+            managerObj.transform.SetParent(managerparent);
+            StartCoroutine(BossTimer());
 
         }
-        if (currentWave >10 && currentWave <= 100)
-        {
-            StopAllCoroutines();
-            timeText.color = Color.white;
-            waveRunning = true;
-            currentWaveTime = 30;
-            waveText.text = "Wave: " + currentWave;
-            StartCoroutine(WaveTimer());
-        }
+
+
+
+
 
 
     }
@@ -108,7 +119,7 @@ public class WaveManager : MonoBehaviour
         while (bossFight)
         {
 
-            timeText.text = ("Boss Fight");            
+            timeText.text = ("Boss Health: " + bossEnemy.currentBossHealth);            
             if (bossEnemy.BossDefeated == true)
             {
                 
@@ -122,6 +133,31 @@ public class WaveManager : MonoBehaviour
     {
         StopAllCoroutines();
         EnemyManager.Instance.DestroyAllEnemies();
+        if (currentWave == 3)
+        {
+            gunManager.AddGun();
+        }
+        if (currentWave == 5)
+        {
+            gunManager.AddGun();
+        }
+        if (currentWave == 7)
+        {
+            gunManager.AddGun();
+        }
+        if (currentWave == 7)
+        {
+            gunManager.AddGun();
+        }
+        if (currentWave == 8)
+        {
+            gunManager.AddGun();
+        }
+        if (currentWave == 9)
+        {
+            gunManager.AddGun();
+        }
+
         waveRunning = false;
         waveNotRunning = true;
         currentWaveTime = 5;
@@ -129,9 +165,12 @@ public class WaveManager : MonoBehaviour
         timeText.color = Color.green;
         StartCoroutine(TimeTillNextWave());
 
+
+
     }
     private void BossWaveComplete()
     {
+        timeText.text = ("Boss Health: Dead");
         StopAllCoroutines();
         EnemyManager.Instance.DestroyAllEnemies();
         waveRunning = false;

@@ -3,71 +3,60 @@ using UnityEngine;
 
 public class HammerManager : MonoBehaviour
 {
-    [Header("GunType")]
-    [SerializeField] GameObject Hammer;
+    [SerializeField] GameObject HammerThowerPrefab;
 
 
     int numberofguns = 0;
+    public static HammerManager othercode;
 
-    Transform Boss;
-    List<Vector2> gunPositions = new List<Vector2>();
+    Transform boss;
+    Transform HammerThrowerparent;
+    List<Vector2> hammerPositions = new List<Vector2>();
 
     int spawnedGuns = 0;
 
-    private void Start()
+    public void Start()
     {
+        boss = GameObject.Find("StalinBoss(Clone)").transform;
+        HammerThrowerparent = GameObject.Find("StalinBoss(Clone)").transform;
+
+        hammerPositions.Add(new Vector2(-2.0f, 0f));
+        hammerPositions.Add(new Vector2(2.0f, 0f));
+
+        hammerPositions.Add(new Vector2(0f, 1.5f));
+        hammerPositions.Add(new Vector2(0f, -1.5f));
+
+        hammerPositions.Add(new Vector2(-1.1f, 1.1f));
+        hammerPositions.Add(new Vector2(1.1f, 1.1f));
+
+        hammerPositions.Add(new Vector2(-1.1f, -1.1f));
+        hammerPositions.Add(new Vector2(1.1f, -1.1f));
+
+        AddGun();
+        AddGun();
+
 
     }
 
-    private void Update()
-    {
-        // For testing
-        if (Input.GetKeyDown(KeyCode.L)) ;
-        {
-            Boss = GameObject.Find("BossEnemy").transform;
-
-            gunPositions.Add(new Vector2(-1.5f, 0f));
-            gunPositions.Add(new Vector2(1.5f, 0f));
-
-            gunPositions.Add(new Vector2(0f, 1.5f));
-            gunPositions.Add(new Vector2(0f, -1.5f));
-
-            gunPositions.Add(new Vector2(-1.1f, 1.1f));
-            gunPositions.Add(new Vector2(1.1f, 1.1f));
-
-            gunPositions.Add(new Vector2(-1.1f, -1.1f));
-            gunPositions.Add(new Vector2(1.1f, -1.1f));
-
-            AddGun();
-            AddGun();
-        }
-            
-    }
 
     public void AddGun()
     {
-        if (spawnedGuns >= gunPositions.Count)
+        if (spawnedGuns >= hammerPositions.Count)
         {
             // Max guns reached, cannot add more
             return;
         }
 
-        var pos = gunPositions[spawnedGuns];
+        var pos = hammerPositions[spawnedGuns];
 
         var roll = Random.Range(0, 100);
-        var WeaponType = roll < 50 ? Hammer : Hammer;
+        var HammerType = roll < 50 ? HammerThowerPrefab : HammerThowerPrefab;
         numberofguns++;
 
-        // 1 = 99% for second item to appear
+        var newhammer = Instantiate(HammerType, pos, Quaternion.identity);
 
-
-
-
-
-
-        var newGun = Instantiate(WeaponType, pos, Quaternion.identity);
-
-        newGun.GetComponent<Gun>().SetOffset(pos);
+        newhammer.GetComponent<HammerThrower>().SetOffset(pos);
+        newhammer.transform.SetParent(HammerThrowerparent);
         spawnedGuns++;
 
 

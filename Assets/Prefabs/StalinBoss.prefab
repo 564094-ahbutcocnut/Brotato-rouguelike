@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 4049000217585956862}
   - component: {fileID: 7603315676435336329}
   m_Layer: 0
-  m_Name: Stalin Boss
+  m_Name: StalinBoss
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -112,12 +112,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxBossHealth: 5000
   speed: 6
-  isCharger: 0
-  distanceToCharge: 5
+  isCharger: 1
+  distanceToCharge: 3
   chargeSpeed: 12
-  prepareTime: 2
+  prepareTime: 10
   BossDefeated: 0
   gunManager: {fileID: 0}
+  currentBossHealth: 0
 --- !u!95 &7603315676435336329
 Animator:
   serializedVersion: 5

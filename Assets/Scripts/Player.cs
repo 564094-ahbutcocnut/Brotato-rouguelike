@@ -94,7 +94,7 @@ public class Player : MonoBehaviour
         BossEnemy bossenemy = collision.gameObject.GetComponent<BossEnemy>();
 
         if (bossenemy != null)
-            Hit(1);
+            Hit(100);
 
     }
 

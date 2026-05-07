@@ -2,7 +2,8 @@ using UnityEngine;
 
 public class HammerProjectile : MonoBehaviour
 {
-    float speed = 18f;
+
+    float speed = 21f;
 
     private void FixedUpdate()
     {
@@ -20,8 +21,11 @@ public class HammerProjectile : MonoBehaviour
         var player = collision.gameObject.GetComponent<Player>();
         if (player != null)
         {
-            Destroy(gameObject);
-            player.Hit(50);
+            Destroy(gameObject);  
+            player.Hit(25);
+            
+ 
+
         }
 
     }

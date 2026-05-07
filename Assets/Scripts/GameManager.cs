@@ -41,7 +41,7 @@ public class GameManager : MonoBehaviour
     public void GameOver()
     {
         gameRunning = false;
-        gameOverPanel.SetActive(true);
+        SceneManager.LoadScene(nextSceneName);
     }
 
 }

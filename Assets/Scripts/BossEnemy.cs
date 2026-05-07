@@ -18,8 +18,10 @@ public class BossEnemy : MonoBehaviour
     public bool BossDefeated = false;
 
     [SerializeField] GunManager gunManager;
+    public static BossEnemy bosshealth;
 
-    private int currentBossHealth;
+
+    public int currentBossHealth;
 
     Animator anim;
     Transform target; // Follow target
@@ -40,7 +42,8 @@ public class BossEnemy : MonoBehaviour
     }
 
     private void Update()
-    {
+    {     
+
         if (isPreparingCharge) return;
 
         if (target != null)
