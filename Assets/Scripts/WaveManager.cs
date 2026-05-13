@@ -4,14 +4,24 @@ using UnityEngine;
 
 public class WaveManager : MonoBehaviour
 {
+    [Header("Texts")]
     [SerializeField] TextMeshProUGUI timeText;
     [SerializeField] TextMeshProUGUI waveText;
+
+    [Header("Managers")]
     [SerializeField] GunManager gunManager;
     [SerializeField] EnemyManager enemyManager;
     [SerializeField] HammerManager hammerManager;
+
+    [Header("Prefabs")]
     [SerializeField] BossEnemy bossEnemy;
     [SerializeField] GameObject winningSquare;
-  
+
+    [Header("WhichBoss")]
+    [SerializeField] bool IsSoviet;
+    [SerializeField] bool IsGerman;
+
+    [Header("TimeStuff")]
 
 
     public static WaveManager Instance;
@@ -50,12 +60,6 @@ public class WaveManager : MonoBehaviour
         waveText.text = "Wave: 1";
     }
 
-    private void Update()
-    {
-        //For testing
-        if (Input.GetKeyDown(KeyCode.P))
-            StartNewWave();        
-    }
 
     public bool WaveRunning() => waveRunning;
 
@@ -80,14 +84,30 @@ public class WaveManager : MonoBehaviour
             waveRunning = true;
             waveText.text = "Wave: Boss" ;
             var roll = Random.Range(0, 100);
-            var enemyType = roll < 90 ? bossEnemy : bossEnemy;
-            var bossObj = Instantiate(enemyType, RandomPosition(), Quaternion.identity);
-            Instance.SetBossEnemy(bossObj.GetComponent<BossEnemy>());
-            var needHammerManager = Random.Range(0, 100);
-            var managerType = needHammerManager < 90 ? hammerManager : hammerManager;
-            var managerObj = Instantiate(managerType, RandomPosition(), Quaternion.identity);
-            managerObj.transform.SetParent(managerparent);
-            StartCoroutine(BossTimer());
+
+            if (IsSoviet == true)
+            {
+                var enemyType = roll < 90 ? bossEnemy : bossEnemy;
+                var bossObj = Instantiate(enemyType, RandomPosition(), Quaternion.identity);
+                Instance.SetBossEnemy(bossObj.GetComponent<BossEnemy>());
+                var needHammerManager = Random.Range(0, 100);
+                var managerType = needHammerManager < 90 ? hammerManager : hammerManager;
+                var managerObj = Instantiate(managerType, RandomPosition(), Quaternion.identity);
+                managerObj.transform.SetParent(managerparent);
+                StartCoroutine(BossTimer());
+            }
+            if (IsGerman == true)
+            {
+                var enemyType = roll < 90 ? bossEnemy : bossEnemy;
+                var bossObj = Instantiate(enemyType, RandomPosition(), Quaternion.identity);
+                Instance.SetBossEnemy(bossObj.GetComponent<BossEnemy>());
+                var needHammerManager = Random.Range(0, 100);
+                var managerType = needHammerManager < 90 ? hammerManager : hammerManager;
+                var managerObj = Instantiate(managerType, RandomPosition(), Quaternion.identity);
+                managerObj.transform.SetParent(managerparent);
+                StartCoroutine(BossTimer());
+            }
+
 
         }
 

@@ -1,11 +1,8 @@
-using System;
-using TMPro;
 using UnityEngine;
 
-public class Enemy : MonoBehaviour
+public class ItalyBoss : MonoBehaviour
 {
-
-    [Header("Stats")] 
+    [Header("Stats")]
     [SerializeField] int maxHealth = 100;
     [SerializeField] float speed = 2f;
 
@@ -17,19 +14,19 @@ public class Enemy : MonoBehaviour
 
 
 
-   
+
 
     bool isCharging = false;
     bool isPreparingCharge = false;
 
 
-    [SerializeField]  GunManager gunManager;
-    [SerializeField] ItalyBoss italyboss;
+    [SerializeField] GunManager gunManager;
 
     private int currentHealth;
 
     Animator anim;
     Transform target; // Follow target
+    Transform Greece;
 
     private void Awake()
     {
@@ -42,7 +39,7 @@ public class Enemy : MonoBehaviour
     private void Start()
     {
         currentHealth = maxHealth;
-        target = GameObject.Find("Player").transform;
+        Greece = GameObject.Find("Greece").transform;
         anim = GetComponent<Animator>();
     }
 
@@ -50,17 +47,17 @@ public class Enemy : MonoBehaviour
     {
         if (isPreparingCharge) return;
 
-        if (target != null)
+        if (Greece != null)
         {
-            Vector3 direction = target.position - transform.position;
+            Vector3 direction = Greece.position - transform.position;
             direction.Normalize();
 
             transform.position += direction * speed * Time.deltaTime;
 
-            var playerToTheRight = target.position.x > transform.position.x; 
+            var playerToTheRight = Greece.position.x > transform.position.x;
             transform.localScale = new Vector2(playerToTheRight ? -1 : 1, 1);
 
-            if(isCharger && !isCharging && Vector2.Distance(transform.position, target.position) < distanceToCharge)
+            if (isCharger && !isCharging && Vector2.Distance(transform.position, Greece.position) < distanceToCharge)
             {
                 isPreparingCharge = true;
                 Invoke("StartCharging", prepareTime);
@@ -77,15 +74,6 @@ public class Enemy : MonoBehaviour
 
 
 
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        ItalyBoss italyboss = collision.gameObject.GetComponent<ItalyBoss>();
-
-        if (italyboss != null)
-            Hit(100);
-
-    }
-
     public void Hit(int damage)
     {
         currentHealth -= damage;
@@ -97,7 +85,7 @@ public class Enemy : MonoBehaviour
 
 
         }
-            
+
     }
 
 

@@ -19,6 +19,7 @@ public class Player : MonoBehaviour
 
     [SerializeField] Enemy enemy;
     [SerializeField] BossEnemy bossenemy;
+    [SerializeField] ItalyBoss italyboss;
 
 
     bool dead = false;
@@ -49,8 +50,8 @@ public class Player : MonoBehaviour
 
 
         //Only for testing
-        if (Input.GetKeyDown(KeyCode.J))
-            Hit(10);
+        //if (Input.GetKeyDown(KeyCode.J))
+           // Hit(10);
 
 
 
@@ -95,6 +96,11 @@ public class Player : MonoBehaviour
 
         if (bossenemy != null)
             Hit(100);
+
+        ItalyBoss italyboss = collision.gameObject.GetComponent<ItalyBoss>();
+
+        if (italyboss != null)
+            Hit(20);
 
     }
 

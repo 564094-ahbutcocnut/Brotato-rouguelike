@@ -51,3 +51,6 @@ TagManager:
   - name: Spamton
     uniqueID: 2536906203
     locked: 0
+  - name: Tank
+    uniqueID: 3368387237
+    locked: 0

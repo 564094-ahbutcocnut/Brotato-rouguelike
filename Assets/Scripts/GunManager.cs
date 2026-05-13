@@ -40,8 +40,8 @@ public class GunManager : MonoBehaviour
     private void Update()
     {
         // For testing
-        if (Input.GetKeyDown(KeyCode.G))
-            AddGun();
+        //if (Input.GetKeyDown(KeyCode.G))
+           // AddGun();
     }
 
     public void AddGun()
