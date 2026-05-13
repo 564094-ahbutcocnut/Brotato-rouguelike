@@ -307,7 +307,7 @@ MonoBehaviour:
   hammerManager: {fileID: 1402990078137703748, guid: d6122bc0e861d9843954b4efb910ec36, type: 3}
   bossEnemy: {fileID: 4049000217585956862, guid: 2541bb28582fc0242b8e217e6cd54714, type: 3}
   winningSquare: {fileID: 8335525435326841297, guid: aff6862332100ff4483eda93cc57bc7d, type: 3}
-  currentWave: 9
+  currentWave: 0
   currentWaveTime: 10
 --- !u!1 &144841305
 GameObject:
@@ -1217,11 +1217,11 @@ PrefabInstance:
       objectReference: {fileID: 1562433532}
     - target: {fileID: 8159673972367155862, guid: fdb2764315a83ed44987084db5970631, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -16.54
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8159673972367155862, guid: fdb2764315a83ed44987084db5970631, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 10.59
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8159673972367155862, guid: fdb2764315a83ed44987084db5970631, type: 3}
       propertyPath: m_LocalPosition.z
