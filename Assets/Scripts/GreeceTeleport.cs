@@ -5,12 +5,12 @@ using UnityEngine;
 public class GreeceTeleport : MonoBehaviour
 {
     private GameObject currentTeleporter;
-    private int teleportcooldown = 180;
+    private int teleportcooldown = 240;
 
     // Update is called once per frame
     void Update()
     {
-        if (teleportcooldown == 180)
+        if (teleportcooldown == 240)
         {
             if (currentTeleporter != null)
             {
@@ -22,26 +22,16 @@ public class GreeceTeleport : MonoBehaviour
         }
         teleportcooldown += 1;
     }
-    private void OnCollisionEnter2D(Collision collision)
-    {
-        
 
-    }
-
-    private void OnCollisionExit2D(Collision collision)
-    {
-
- 
-    }
 
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.CompareTag("Teleporter"))
+        if (collision.CompareTag("Teleporter"))
         {
-            Debug.Log("Bonjour");
+            
             currentTeleporter = collision.gameObject;
-        }        
+        }
     }
 
     private void OnTriggerExit2D(Collider2D collision)

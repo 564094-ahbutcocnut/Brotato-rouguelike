@@ -16,6 +16,9 @@ public class WaveManager : MonoBehaviour
     [Header("Prefabs")]
     [SerializeField] BossEnemy bossEnemy;
     [SerializeField] GameObject winningSquare;
+    [SerializeField] GameObject Greece;
+    [SerializeField] GameObject Mussolini;
+    [SerializeField] GameObject Hitball;
 
     [Header("WhichBoss")]
     [SerializeField] bool IsSoviet;
@@ -25,6 +28,7 @@ public class WaveManager : MonoBehaviour
 
 
     public static WaveManager Instance;
+    Transform enemiesParent;
     Transform managerparent;
 
 
@@ -54,6 +58,7 @@ public class WaveManager : MonoBehaviour
 
     private void Start()
     {
+        enemiesParent = GameObject.Find("Enemies").transform;
         managerparent = GameObject.Find("Managers").transform;
         StartNewWave();
         timeText.text = "30";
@@ -87,24 +92,29 @@ public class WaveManager : MonoBehaviour
 
             if (IsSoviet == true)
             {
-                var enemyType = roll < 90 ? bossEnemy : bossEnemy;
-                var bossObj = Instantiate(enemyType, RandomPosition(), Quaternion.identity);
-                Instance.SetBossEnemy(bossObj.GetComponent<BossEnemy>());
                 var needHammerManager = Random.Range(0, 100);
                 var managerType = needHammerManager < 90 ? hammerManager : hammerManager;
                 var managerObj = Instantiate(managerType, RandomPosition(), Quaternion.identity);
                 managerObj.transform.SetParent(managerparent);
+                var enemyType = roll < 90 ? bossEnemy : bossEnemy;
+                var bossObj = Instantiate(enemyType, RandomPosition(), Quaternion.identity);
+                Instance.SetBossEnemy(bossObj.GetComponent<BossEnemy>());
+
                 StartCoroutine(BossTimer());
             }
             if (IsGerman == true)
             {
-                var enemyType = roll < 90 ? bossEnemy : bossEnemy;
+                var enemyType = roll < 90 ? Hitball : Hitball;
                 var bossObj = Instantiate(enemyType, RandomPosition(), Quaternion.identity);
                 Instance.SetBossEnemy(bossObj.GetComponent<BossEnemy>());
-                var needHammerManager = Random.Range(0, 100);
-                var managerType = needHammerManager < 90 ? hammerManager : hammerManager;
-                var managerObj = Instantiate(managerType, RandomPosition(), Quaternion.identity);
-                managerObj.transform.SetParent(managerparent);
+                var NeedGreece = Random.Range(0, 100);
+                var GreeceType = NeedGreece < 90 ? Greece : Greece;
+                var greece = Instantiate(GreeceType, CenterPosition(), Quaternion.identity);
+                greece.transform.SetParent(enemiesParent);
+                var NeedMussolini = Random.Range(0, 100);
+                var MussoliniType = NeedMussolini < 90 ? Mussolini : Mussolini;
+                var mussolini = Instantiate(MussoliniType, RandomPosition(), Quaternion.identity);
+                mussolini.transform.SetParent(enemiesParent);
                 StartCoroutine(BossTimer());
             }
 
@@ -224,7 +234,11 @@ public class WaveManager : MonoBehaviour
         Vector2 randomposition = new Vector2(Random.Range(-2, 2), Random.Range(-2, 2));
         return randomposition;
     }
-
+    Vector2 CenterPosition()
+    {
+        Vector2 randomposition = new Vector2(Random.Range(0, 0), Random.Range(0, 0));
+        return randomposition;
+    }
 
     Vector2 RandomWinPosition()
     {

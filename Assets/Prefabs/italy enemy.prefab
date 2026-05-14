@@ -198,9 +198,10 @@ MonoBehaviour:
   speed: 4
   isCharger: 1
   distanceToCharge: 8
-  chargeSpeed: 50
+  chargeSpeed: 15
   prepareTime: 8
   gunManager: {fileID: 0}
+  italyboss: {fileID: 2509486346376792774, guid: 8c5a1ad74f9b3e241a7b8e878fbe21b4, type: 3}
 --- !u!95 &252722052277343935
 Animator:
   serializedVersion: 5

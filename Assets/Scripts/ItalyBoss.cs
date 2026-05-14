@@ -39,7 +39,7 @@ public class ItalyBoss : MonoBehaviour
     private void Start()
     {
         currentHealth = maxHealth;
-        Greece = GameObject.Find("Greece").transform;
+        Greece = GameObject.Find("Greece(Clone)").transform;
         anim = GetComponent<Animator>();
     }
 
@@ -63,6 +63,11 @@ public class ItalyBoss : MonoBehaviour
                 Invoke("StartCharging", prepareTime);
             }
         }
+        if(Greece == null)
+        {
+            Greece = GameObject.Find("Player").transform;
+        }
+
     }
 
     void StartCharging()

@@ -18,6 +18,7 @@ public class BossEnemy : MonoBehaviour
     public bool BossDefeated = false;
 
     [SerializeField] GunManager gunManager;
+
     public static BossEnemy bosshealth;
 
 
@@ -70,6 +71,9 @@ public class BossEnemy : MonoBehaviour
         isCharging = true;
         speed = chargeSpeed;
     }
+
+
+    
 
 
 

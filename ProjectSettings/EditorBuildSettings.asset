@@ -15,6 +15,9 @@ EditorBuildSettings:
     path: Assets/Scenes/DeathsceneSoviet.unity
     guid: 83db43727856a4f448f71892d79887c7
   - enabled: 1
-    path: Assets/Scenes/Select which path.unity
+    path: Assets/Scenes/SelectWhichPath.unity
     guid: 3a539e27b41e3c44294a007068c4495b
+  - enabled: 1
+    path: Assets/Scenes/DeathsceneGerman.unity
+    guid: 158d74b840d15754aa890e415e0e0429
   m_configObjects: {}

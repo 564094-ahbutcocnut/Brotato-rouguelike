@@ -19,7 +19,7 @@ public class Teleporter : MonoBehaviour
     {
         var roll = Random.Range(8, 1);
 
-        Debug.Log("Hello");
+        
         if(roll == 1)
         {
             return destination1;

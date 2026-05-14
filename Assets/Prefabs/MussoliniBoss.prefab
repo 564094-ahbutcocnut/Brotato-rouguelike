@@ -73,7 +73,7 @@ MonoBehaviour:
   speed: 6
   isCharger: 1
   distanceToCharge: 2
-  chargeSpeed: 12
+  chargeSpeed: 20
   prepareTime: 2
   gunManager: {fileID: 0}
 --- !u!50 &9215453168054366416
