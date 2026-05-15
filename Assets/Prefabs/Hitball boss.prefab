@@ -172,7 +172,6 @@ MonoBehaviour:
   prepareTime: 2
   BossDefeated: 0
   gunManager: {fileID: 0}
-  italyboss: {fileID: 2509486346376792774, guid: 8c5a1ad74f9b3e241a7b8e878fbe21b4, type: 3}
   currentBossHealth: 0
 --- !u!114 &451837949898045179
 MonoBehaviour:
@@ -188,7 +187,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bossenemy: {fileID: 6122134285993683763}
   GermanTank: {fileID: 5111056872768147683, guid: f8fd469a686159e498434d9dfffb5de2, type: 3}
-  MinDistanceFromPlayer: 16
+  MinDistanceFromPlayer: 4
 --- !u!95 &3067084312814982587
 Animator:
   serializedVersion: 5
