@@ -1114,7 +1114,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c50b6879eec97b143b1cd1a101210a5d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 1000
+  maxHealth: 500
   speed: 5
   isCharger: 1
   distanceToCharge: 3
