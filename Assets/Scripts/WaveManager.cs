@@ -236,8 +236,8 @@ public class WaveManager : MonoBehaviour
     }
     Vector2 CenterPosition()
     {
-        Vector2 randomposition = new Vector2(Random.Range(0, 0), Random.Range(0, 0));
-        return randomposition;
+        Vector2 Centreposition = new Vector2(Random.Range(0, 0), Random.Range(0, 0));
+        return Centreposition;
     }
 
     Vector2 RandomWinPosition()
