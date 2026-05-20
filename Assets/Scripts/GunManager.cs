@@ -41,7 +41,7 @@ public class GunManager : MonoBehaviour
     {
         // For testing
         //if (Input.GetKeyDown(KeyCode.G))
-           // AddGun();
+            //AddGun();
     }
 
     public void AddGun()
