@@ -20,4 +20,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/DeathsceneGerman.unity
     guid: 158d74b840d15754aa890e415e0e0429
+  - enabled: 1
+    path: Assets/Scenes/Victory screen.unity
+    guid: f15cfd561df85364287d5a02b0c946b1
   m_configObjects: {}

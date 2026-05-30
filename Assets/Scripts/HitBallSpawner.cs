@@ -19,7 +19,7 @@ public class HitBallSpawner : MonoBehaviour
 
     private void Start()
     {
-        player = GameObject.Find("Player").transform;
+        player = GameObject.Find("Player-Poland").transform;
         enemiesParent = GameObject.Find("Enemies").transform;
     }
 

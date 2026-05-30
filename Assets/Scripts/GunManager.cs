@@ -19,7 +19,7 @@ public class GunManager : MonoBehaviour
 
     private void Start()
     {
-        player = GameObject.Find("Player").transform;
+        player = GameObject.Find("Player-Poland").transform;
 
         gunPositions.Add(new Vector2(-1.5f, 0f));
         gunPositions.Add(new Vector2(1.5f, 0f));        

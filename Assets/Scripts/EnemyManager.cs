@@ -25,7 +25,7 @@ public class EnemyManager : MonoBehaviour
     private void Start()
     {
         enemiesParent = GameObject.Find("Enemies").transform;
-        player = GameObject.Find("Player").transform;
+        player = GameObject.Find("Player-Poland").transform;
     }
 
     private void Update()

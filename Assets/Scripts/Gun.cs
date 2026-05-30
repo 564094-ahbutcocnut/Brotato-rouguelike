@@ -23,7 +23,7 @@ public class Gun : MonoBehaviour
     {
         anim = GetComponent<Animator>();
         timeSinceLastShot = fireRate;
-        player = GameObject.Find("Player").transform;
+        player = GameObject.Find("Player-Poland").transform;
     }
 
 

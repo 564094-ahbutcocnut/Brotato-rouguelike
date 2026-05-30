@@ -38,7 +38,7 @@ public class BossEnemy : MonoBehaviour
     private void Start()
     {
         currentBossHealth = maxBossHealth;
-        target = GameObject.Find("Player").transform;
+        target = GameObject.Find("Player-Poland").transform;
         anim = GetComponent<Animator>();
     }
 

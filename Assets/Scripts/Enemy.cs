@@ -42,7 +42,7 @@ public class Enemy : MonoBehaviour
     private void Start()
     {
         currentHealth = maxHealth;
-        target = GameObject.Find("Player").transform;
+        target = GameObject.Find("Player-Poland").transform;
         anim = GetComponent<Animator>();
     }
 

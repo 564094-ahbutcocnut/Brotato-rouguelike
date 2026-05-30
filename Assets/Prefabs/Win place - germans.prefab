@@ -261,9 +261,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8013a28722e542b49b2613a80ae36e75, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nextSceneName: SovietOffensive
+  nextSceneName: Victory screen
   displayMessage: {fileID: 2601507645263373374}
-  showMessage: Let's move forward and crush the German Riech
+  showMessage: We crushed the german Reich
 --- !u!1 &6266087550197407823
 GameObject:
   m_ObjectHideFlags: 0
