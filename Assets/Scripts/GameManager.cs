@@ -7,13 +7,14 @@ using UnityEngine.UI;
 public class GameManager : MonoBehaviour
 {
 
-    [SerializeField] GameObject gameOverPanel;
+
     [SerializeField] Button restartButton;
 
     private bool gameRunning;
 
     public static GameManager instance;
     public string nextSceneName;
+    public string MainMenuScene;
 
     private void Awake()
     {
@@ -30,7 +31,7 @@ public class GameManager : MonoBehaviour
 
     void RestartGame()
     {
-        SceneManager.LoadScene(nextSceneName);
+        SceneManager.LoadScene(MainMenuScene);
     }
 
     public bool IsGameRunning()

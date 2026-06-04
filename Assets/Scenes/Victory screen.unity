@@ -1578,11 +1578,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6703293918811777497, guid: aff6862332100ff4483eda93cc57bc7d, type: 3}
       propertyPath: showMessage
-      value: Lets crush the Soviets
+      value: Want to play again?
       objectReference: {fileID: 0}
     - target: {fileID: 6703293918811777497, guid: aff6862332100ff4483eda93cc57bc7d, type: 3}
       propertyPath: nextSceneName
-      value: SovietOffensive
+      value: SelectWhichPath
       objectReference: {fileID: 0}
     - target: {fileID: 7676366315102266804, guid: aff6862332100ff4483eda93cc57bc7d, type: 3}
       propertyPath: m_LocalPosition.x
